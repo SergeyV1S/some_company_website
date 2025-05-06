@@ -22,7 +22,7 @@ const RootLayout = ({
 }>) => {
   return (
     <html lang='ru' className={loraFont.className}>
-      <body>
+      <body style={{ height: "100%" }}>
         <Providers>
           <Header />
           {children}

@@ -1,28 +1,24 @@
-"use client";
-
-import { CustomLink } from "./CustomLink";
+import { Link } from "./ui/Link";
 import { paths } from "@/constants";
-import styled from "@emotion/styled";
-import { Typography } from "@mui/material";
+import { Box, Typography } from "@mui/material";
 
 export const Header = () => {
   return (
-    <StyledHeader>
-      <CustomLink href={paths.main}>
-        <Typography fontSize={20}>Igniz</Typography>
-      </CustomLink>
-      <CustomLink href={paths.conactUs}>
-        <Typography>Contact Us</Typography>
-      </CustomLink>
-    </StyledHeader>
+    <Box
+      component='header'
+      sx={{
+        padding: "24px",
+        borderBottom: "1px solid lightgray"
+      }}
+    >
+      <Box component='nav' display='flex' alignItems='center' justifyContent='space-between'>
+        <Link href={paths.main}>
+          <Typography fontSize={20}>Igniz</Typography>
+        </Link>
+        <Link href={paths.conactUs} customVariant='button'>
+          <Typography color='white'>Связаться</Typography>
+        </Link>
+      </Box>
+    </Box>
   );
 };
-
-const StyledHeader = styled.header`
-  padding: 16px 24px;
-  background-color: transparent;
-  border-bottom: 1px solid lightgray;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-`;

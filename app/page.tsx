@@ -1,65 +1,63 @@
-import { CustomLink } from "@/components/CustomLink";
 import { LandingCard } from "@/components/LandingCard";
-import { Typography } from "@/components/Typography";
-import { VideoPlayer } from "@/components/Video";
-import { paths } from "@/constants";
+import { Link, Typography, VideoPlayer } from "@/components/ui";
+import { landingCards, paths } from "@/constants";
 import { Box, Container, Grid, Stack } from "@mui/material";
 
-const HomePage = () => {
-  return (
-    <Stack spacing={8} paddingTop={2} paddingBottom={4}>
-      <Box component='section' padding={6} bgcolor='#F5F5F5'>
-        <Container maxWidth='xl'>
-          <Box display='flex' alignItems='center' gap={4}>
-            <Box flexBasis='50%'>
-              <Box display='flex' flexDirection='column' gap={2}>
-                <Typography variant='h1'>Most important title on the page</Typography>
-                <Typography>
-                  Lorem ipsum dolor sit amet consectetur adipisicing elit. Laborum ad praesentium,
-                  voluptate voluptas possimus accusantium placeat! Illo tempora consectetur
-                  voluptatum expedita praesentium unde sapiente, perferendis molestias ipsum est
-                  quaerat doloribus?
-                </Typography>
-              </Box>
-            </Box>
-
-            <Box flexBasis='50%'>
-              <VideoPlayer />
+const HomePage = () => (
+  <Stack spacing={8} paddingTop={2} paddingBottom={4}>
+    <Box component='section' padding={6} bgcolor='#F5F5F5'>
+      <Container maxWidth='xl'>
+        <Box display='flex' alignItems='center' gap={4}>
+          <Box flexBasis='50%'>
+            <Box display='flex' flexDirection='column' gap={2}>
+              <Typography customVariant='h1'>
+                Igniz — цифровые решения для трансформации бизнеса
+              </Typography>
+              <Typography>
+                Разрабатываем индивидуальные программные продукты для автоматизации, анализа данных
+                и цифровой трансформации. Технологии, которые работают на ваш результат.
+              </Typography>
             </Box>
           </Box>
-        </Container>
-      </Box>
 
+          <Box flexBasis='50%'>
+            <VideoPlayer url='https://www.youtube.com/watch?v=dQw4w9WgXcQ' />
+          </Box>
+        </Box>
+      </Container>
+    </Box>
+
+    <Container maxWidth='xl'>
+      <Stack component='section' spacing={8} display='flex' alignItems='center'>
+        <Typography customVariant='h2' textAlign='center'>
+          Наши ключевые решения
+        </Typography>
+        <Grid container columns={{ xs: 4, sm: 8, md: 12 }} spacing={8}>
+          {landingCards.map((card) => (
+            <LandingCard key={card.title} {...card} />
+          ))}
+        </Grid>
+        <Link href={paths.conactUs} customVariant='button'>
+          Связаться
+        </Link>
+      </Stack>
+    </Container>
+
+    <Box component='section' padding={6} borderColor='black' bgcolor='#F5F5F5'>
       <Container maxWidth='xl'>
-        <Stack component='section' spacing={8}>
-          <Typography variant='h2' textAlign='center'>
-            Also very important title
-          </Typography>
-          <Grid container columns={{ xs: 4, sm: 8, md: 12 }} spacing={8}>
-            {Array(6)
-              .fill(1)
-              .map((_, index) => (
-                <LandingCard key={index} />
-              ))}
-          </Grid>
-          <CustomLink href={paths.conactUs}>Contact us</CustomLink>
+        <Stack spacing={4} display='flex' alignItems='center'>
+          <Typography customVariant='h2'>Давайте обсудим ваш проект</Typography>
+          <Link href={paths.conactUs} customVariant='button'>
+            Связаться
+          </Link>
         </Stack>
       </Container>
+    </Box>
 
-      <Box component='section' padding={6} borderColor='black' textAlign='center' bgcolor='#F5F5F5'>
-        <Container maxWidth='xl'>
-          <Stack spacing={4}>
-            <Typography variant='h2'>Also very important title</Typography>
-            <CustomLink href={paths.conactUs}>Contact us</CustomLink>
-          </Stack>
-        </Container>
-      </Box>
-
-      <Typography variant='h3' textAlign='center'>
-        Igniz 2024
-      </Typography>
-    </Stack>
-  );
-};
+    <Typography customVariant='h3' marginY={4} textAlign='center'>
+      Igniz 2025
+    </Typography>
+  </Stack>
+);
 
 export default HomePage;
