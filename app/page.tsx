@@ -48,26 +48,28 @@ const HomePage = () => (
       </Container>
     </Box>
 
-    <Container maxWidth='xl'>
-      <Stack component='section' spacing={8} display='flex' alignItems='center'>
-        <Typography customVariant='h2' textAlign='center'>
-          Наши ключевые решения
-        </Typography>
-        <Grid
-          container
-          columns={{ xs: 2, sm: 8, md: 12 }}
-          sx={{ textAlign: { xs: "center", sm: "start" } }}
-          spacing={8}
-        >
-          {landingCards.map((card) => (
-            <LandingCard key={card.title} {...card} />
-          ))}
-        </Grid>
-        <Link href={paths.conactUs} customVariant='button'>
-          Связаться
-        </Link>
-      </Stack>
-    </Container>
+    <Box component='section'>
+      <Container maxWidth='xl'>
+        <Stack spacing={8} display='flex' alignItems='center'>
+          <Typography customVariant='h2' textAlign='center'>
+            Наши ключевые решения
+          </Typography>
+          <Grid
+            container
+            columns={{ xs: 2, sm: 8, md: 12 }}
+            sx={{ textAlign: { xs: "center", sm: "start" } }}
+            spacing={8}
+          >
+            {landingCards.map((card) => (
+              <LandingCard key={card.title} {...card} />
+            ))}
+          </Grid>
+          <Link href={paths.conactUs} customVariant='button'>
+            Связаться
+          </Link>
+        </Stack>
+      </Container>
+    </Box>
 
     <Box component='section' padding={6} borderColor='black' bgcolor='#F5F5F5'>
       <Container maxWidth='xl'>
